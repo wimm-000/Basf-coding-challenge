@@ -1,0 +1,37 @@
+@import "type";
+@import "respond-to";
+@import "view-utils";
+@import "cangrid";
+@import "fluid-prop";
+@import "inline-svg";
+@import "video-responsive";
+@import "view-utils";
+@import "text";
+
+// Center block
+@mixin center-block($display: block) {
+  display: $display;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Column width with margin
+@mixin column-width($columns, $numberColumns: 3) {
+  width: map-get($columns, $numberColumns) - (($columns__margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+@function strip-unit($number) {
+  @if type-of($number)=="number"and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@mixin responsive-height-image {
+  img {
+    max-width: none;
+    max-height: 100%;
+    width: auto;
+  }
+}

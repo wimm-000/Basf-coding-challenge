@@ -1,0 +1,11 @@
+// Css vars side padding app
+:root {
+    // paddinde de la app
+    --padding-app: #{rem(15)};
+
+    @include respond-to(m) {
+        --padding-app: #{rem(45)};
+    }
+}
+
+$padding__app: var(--padding-app);

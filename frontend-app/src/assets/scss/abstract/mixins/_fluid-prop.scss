@@ -1,0 +1,27 @@
+@mixin fluid-prop(
+  $prop,
+  $min-prop-size,
+  $max-prop-size,
+  $min-vw: 320px,
+  $max-vw: 900px
+) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-prop-size);
+  $u4: unit($max-prop-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      #{$prop}: $min-prop-size;
+      @media screen and (min-width: $min-vw) {
+        #{$prop}: calc(
+          #{$min-prop-size} + #{strip-unit($max-prop-size - $min-prop-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        #{$prop}: $max-prop-size;
+      }
+    }
+  }
+}

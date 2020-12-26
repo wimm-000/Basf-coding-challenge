@@ -1,0 +1,49 @@
+// Breakpoints.
+$responsive: true;
+$breakpoints: (
+    "xxxl": (
+        min-width: 1499px,
+    ),
+    "xxl": (
+        min-width: 1119px,
+    ),
+    "xl": (
+        min-width: 1023px,
+    ),
+    "l": (
+        min-width: 979px,
+    ),
+    "m": (
+        min-width: 767px,
+    ),
+    "s": (
+        min-width: 649px,
+    ),
+    "xs": (
+        min-width: 420px,
+    ),
+    "xxs": (
+        min-width: 374px,
+    ),
+    "landscape": (
+        orientation: landscape,
+    ),
+);
+
+// Mixin para responsive uso @include respond-to(full) {....}
+@mixin respond-to($breakpoint) {
+    // If the key exists in the map
+    @if $responsive {
+        @if map-has-key($breakpoints, $breakpoint) {
+            // Prints a media query based on the value
+            @media #{inspect(map-get($breakpoints, $breakpoint))} {
+                @content;
+            }
+        }
+
+        // If the key doesn't exist in the map
+        @else {
+            @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Please make sure it is defined in `$breakpoints` map.";
+        }
+    }
+}

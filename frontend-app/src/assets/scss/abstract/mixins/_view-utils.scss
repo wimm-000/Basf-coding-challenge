@@ -1,0 +1,16 @@
+// Funcion para el calculo en procentage de altura.
+@function flex-height($height, $maxheight: 1365) {
+  @return #{(($height / ($maxheight)) * 100)}vh;
+}
+
+@function flex-vwidth($width, $maxwidth: 660) {
+  @return calc(#{(($width / ($maxwidth)) * 100)}vw);
+}
+
+@function flex-width($target, $context: 970) {
+  @return percentage($target/$context);
+}
+
+@function ratio-percentage($width: 16, $height: 9) {
+  @return ($height / $width) * 100%;
+}

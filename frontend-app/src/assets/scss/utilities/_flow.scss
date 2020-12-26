@@ -1,0 +1,8 @@
+.flow>*+* {
+    margin-top: var(--flow-space, #{rem(30)});
+
+}
+
+.side-flow>*+* {
+    margin-left: var(--flow-space, #{rem(30)});
+}

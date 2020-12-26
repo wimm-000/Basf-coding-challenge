@@ -1,0 +1,18 @@
+@mixin input-text {
+    font-family: $font__main;
+    font-weight: 300;
+    font-size: rem(18);
+}
+
+@mixin selector-text {
+    font-family: $font__main;
+    font-weight: bold;
+    font-size: rem(21);
+}
+
+@mixin error-text {
+    font-family: $font__main;
+    font-weight: normal;
+    font-style: italic;
+    font-size: rem(15);
+}

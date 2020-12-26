@@ -1,0 +1,5 @@
+@mixin cangrid {
+  @supports (grid-area: auto) {
+    @content;
+  }
+}

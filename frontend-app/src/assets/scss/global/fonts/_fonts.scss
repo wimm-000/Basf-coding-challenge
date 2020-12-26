@@ -1,0 +1,12 @@
+@import "social-font";
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+@font-face {
+    font-family: "Quiche Display";
+    src: url("../../../fonts/QuicheDisplay-Black.woff2") format("woff2"),
+        url("../../../fonts/QuicheDisplay-Black.woff") format("woff");
+    font-style: normal;
+    font-weight: 800;
+}

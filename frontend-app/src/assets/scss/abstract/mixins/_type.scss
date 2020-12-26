@@ -1,0 +1,87 @@
+// Convierte valres a em,
+$browser-context: 16; // Valor por defecto.
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+@function rem($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}rem;
+}
+
+@mixin fluid-type(
+  $min-font-size,
+  $max-font-size,
+  $min-vw: 320px,
+  $max-vw: 900px
+) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+@mixin rem-fluid-type(
+  $min-font-size,
+  $max-font-size,
+  $min-vw: 20rem,
+  $max-vw: 56.25rem
+) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+@mixin bordered($border-color: $black, $default-body-color: $white) {
+  color: $default-body-color;
+  text-shadow: 1px 1px $black, -1px -1px $border-color;
+  @supports (-webkit-text-stroke: 1px $border-color) {
+    color: transparent;
+    -webkit-text-stroke: 1px $border-color;
+    text-shadow: none;
+  }
+}
+
+@mixin line-after-text($color: $black) {
+  position: relative;
+  $height: 3;
+  &:after {
+    content: " ";
+    width: 0.8em;
+    display: inline-block;
+    height: rem($height);
+    background: $color;
+    border-radius: #{$height / 2}px;
+    margin-left: 0.2em;
+  }
+}
