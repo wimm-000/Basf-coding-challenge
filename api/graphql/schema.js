@@ -3,8 +3,10 @@ module.exports = buildSchema(`
 
   type Patent {
     id: ID!
-    name: String!
-    price: Float!
+    title: String!
+    patent_number: String!
+    chemical_type: String!
+    chemical_type_number: Int!
     is_active: Boolean
   }
 
@@ -23,7 +25,7 @@ module.exports = buildSchema(`
   }
 
   type rootQuery {
-    patents(id: Int): [Patent!]!
+    patents(filter:String, typeNumber: Int): [Patent!]!
     login(username: String!, password: String!): AuthData
   }
 
