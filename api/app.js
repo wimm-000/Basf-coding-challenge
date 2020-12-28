@@ -4,9 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
+const isAuth = require('./middleware/isAuth')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var graphqlHttp = require('./routes/graphql');
 
 var app = express();
 
@@ -16,6 +17,15 @@ app.set('view engine', 'hjs');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authoritation')
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200)
+  }
+  next()
+})
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(sassMiddleware({
@@ -25,9 +35,10 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(isAuth);
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/graphql', graphqlHttp);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
