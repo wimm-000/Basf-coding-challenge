@@ -11,10 +11,8 @@ module.exports = async ({filter, typeNumber=null}) => {
   try {
     let response
     if (!filter) {
-      console.log(db.select().modify(isValidTypeNumber).from(constants.PANTENT_TABLE).toSQL())
       response = await db.select().modify(isValidTypeNumber).from(constants.PANTENT_TABLE)
     } else {
-      console.log(db.select().modify(isValidTypeNumber).from(constants.PANTENT_TABLE).toSQL())
       response = await db
         .select()
         .where(
