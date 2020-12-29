@@ -3,3 +3,4 @@
 
 #proyect production
 _dist/
+/node_modules
