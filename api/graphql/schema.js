@@ -1,4 +1,4 @@
-const { buildSchema } = require('graphql')
+const { buildSchema } = require("graphql");
 module.exports = buildSchema(`
 
   type Patent {
@@ -25,7 +25,7 @@ module.exports = buildSchema(`
   }
 
   type rootQuery {
-    patents(filter:String, typeNumber: Int): [Patent!]!
+    patents(filter:String, typeNumber: Int, take: Int, skip: Int, orderBy: String, isAsc: Boolean): [Patent!]!
     login(username: String!, password: String!): AuthData
   }
 
