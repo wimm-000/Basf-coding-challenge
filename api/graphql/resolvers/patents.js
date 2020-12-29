@@ -13,12 +13,17 @@ module.exports = async ({
     if (typeNumber !== null) {
       queryBuilder
         .groupBy("id")
-        .orderBy(order, isAsc ? "asc" : "desc")
-        .having("chemical_type_number", "=", `${typeNumber}`);
+        .orderBy(orderBy, isAsc ? "asc" : "desc")
+        .having("chemical_type_number", "=", `${typeNumber}`)
+        .limit(take)
+        .offset(skip);
     } else {
-      queryBuilder.orderBy(orderBy, isAsc ? "asc" : "desc");
+      queryBuilder
+        .orderBy(orderBy, isAsc ? "asc" : "desc")
+        .limit(take)
+        .offset(skip);
     }
-    queryBuilder.limit(take).offset(skip);
+    queryBuilder;
   };
   try {
     let response;
