@@ -8,6 +8,7 @@ const Header = () => {
       <div className="header__logo">
         <BasfLogo />
       </div>
+      <div className="header__icon">{"\u007b\u007d"}</div>
       <h1 className="header__title">Coding Challenge</h1>
       <ModalSearch />
     </header>

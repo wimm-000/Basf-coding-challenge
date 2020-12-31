@@ -1,0 +1,18 @@
+.header {
+  background: $color__dark-corporate;
+  display: flex;
+  padding: $vertical-flow $horizontal-flow;
+  align-items: center;
+  color: $color__white;
+  position: relative;
+  &__icon {
+    margin: rem(16);
+    font-size: rem(25);
+    font-weight: bold;
+  }
+  &__title {
+    flex: 1 0;
+    font-weight: bold;
+    font-size: rem(20);
+  }
+}

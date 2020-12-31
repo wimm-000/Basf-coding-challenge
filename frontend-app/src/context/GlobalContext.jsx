@@ -4,7 +4,7 @@ import { addBodyScroll, removeBodyScroll } from "../utils/bodyScroll";
 export const GlobalContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
-  const [isMenuOpen, setOpenMenu] = useState(null);
+  const [isMenuOpen, setOpenMenu] = useState(false);
   useEffect(() => {
     if (isMenuOpen) {
       // Al abrir modal quitamos el scroll del body

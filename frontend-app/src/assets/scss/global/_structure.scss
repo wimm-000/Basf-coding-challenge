@@ -1,11 +1,19 @@
-// Css vars side padding app
 :root {
-    // paddinde de la app
-    --padding-app: #{rem(15)};
+  --horizontal-flow: #{rem(15)};
+  --vertical-flow: #{rem(15)};
+  --mid-flow: #{rem(20)};
 
-    @include respond-to(m) {
-        --padding-app: #{rem(45)};
-    }
+  @include respond-to(m) {
+    --horizontal-flow: var(--mid-flow);
+    --vertical-flow: var(--mid-flow);
+  }
+
+  @include respond-to(xl) {
+    --horizontal-flow: #{rem(45)};
+    --vertical-flow: #{rem(40)};
+  }
 }
 
-$padding__app: var(--padding-app);
+$horizontal-flow: var(--horizontal-flow);
+$vertical-flow: var(--vertical-flow);
+$mid-flow: var(--mid-flow);
