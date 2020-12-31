@@ -1,0 +1,7 @@
+.type-selector {
+  display: flex;
+  justify-content: flex-start;
+  & > * + * {
+    margin-left: rem(15);
+  }
+}

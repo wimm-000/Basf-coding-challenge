@@ -1,0 +1,18 @@
+.loading {
+  font-size: rem(15);
+  color: $color__light-grey;
+  font-style: italic;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: rem(5);
+  svg {
+    margin-right: rem(5);
+    width: 15px;
+    height: 15px;
+    animation: spin 1800ms infinite linear;
+    path {
+      fill: $color__light-grey;
+    }
+  }
+}

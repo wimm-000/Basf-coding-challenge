@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Input from "../common/Input";
 import Loading from "../common/Loading";
 import { ReactComponent as SpinnerIcon } from "../../assets/images/spinner.svg";
+import { ReactComponent as SearchIcon } from "../../assets/images/search.svg";
 import TypeSelector from "./TypeSelector";
 
 const SearchForm = () => {
@@ -25,16 +26,24 @@ const SearchForm = () => {
 
   return (
     <form className="search-form">
-      <Loading isLoading={loadingText} Icon={SpinnerIcon}>
-        {loadingText}
-      </Loading>
-      <Input value={searchString} onChange={handleChange} />
+      <div className="search-form__fields">
+        <Loading isLoading={loadingText} Icon={SpinnerIcon}>
+          {loadingText}
+        </Loading>
+        <Input
+          value={searchString}
+          onChange={handleChange}
+          className="input--search"
+          Icon={SearchIcon}
+          placeholder="Search by title, pattent number or chemical type"
+        />
+      </div>
       <div className="search-form__select">
         <TypeSelector typesSelected={options} onChange={handleTypeChange} />
-        <p className="search-form__info">
-          Choose type of chemichals to filter search (multioption)
-        </p>
       </div>
+      <p className="search-form__info">
+        Choose type of chemichals to filter search (multioption)
+      </p>
     </form>
   );
 };

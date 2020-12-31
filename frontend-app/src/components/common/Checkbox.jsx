@@ -14,7 +14,7 @@ const Checkbox = ({ children, className, isChecked, onChange }) => {
   const inputId = ID();
   return (
     <div {...checkboxProps}>
-      <label htmlFor={inputId}>
+      <label class="checkbox__label" htmlFor={inputId}>
         <input
           id={inputId}
           data-testid="checkbox"

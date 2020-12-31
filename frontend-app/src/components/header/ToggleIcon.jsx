@@ -9,7 +9,7 @@ const ToggleIcon = ({ isOpen = false, OpenIcon, CloseIcon, onClick }) => {
     >
       {isOpen && OpenIcon && (
         <span className="toggle-icon__open">
-          <OpenIcon />
+          <CloseIcon />
         </span>
       )}
       {!isOpen && CloseIcon && (

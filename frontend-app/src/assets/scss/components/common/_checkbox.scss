@@ -1,0 +1,56 @@
+input[type="checkbox"] {
+  // hidden
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  cursor: pointer;
+}
+
+.checkbox {
+  label {
+    cursor: pointer;
+  }
+  cursor: pointer;
+  background: $color__light-grey;
+  width: max-content;
+  padding: rem(7) rem(9);
+  font-size: rem(17);
+  position: relative;
+  display: flex;
+  align-items: center;
+  transform: background-color 400ms $ease__circout;
+  &::before {
+    content: "";
+    width: rem(25);
+    height: rem(25);
+    margin-right: rem(5);
+    background: $color__white;
+    display: block;
+    border-radius: 50%;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    display: block;
+    background: url(../../../images/check.svg) no-repeat center center;
+    background-size: contain;
+    left: rem(9);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    opacity: 0;
+    transform: opacity 400ms $ease__circout;
+  }
+  &__cheked {
+    background: $color__accent;
+    &::after {
+      opacity: 1;
+    }
+  }
+}

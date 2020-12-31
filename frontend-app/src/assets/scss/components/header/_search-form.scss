@@ -5,5 +5,14 @@
   width: 100%;
   height: calc(100vh - #{rem(97)});
   transform: translateY(100%);
+  padding: $vertical-flow $horizontal-flow;
   left: 0;
+  // not very bem but clean
+  & > * + * {
+    margin-top: $vertical-flow;
+  }
+  &__info {
+    font-size: rem(13);
+    font-style: italic;
+  }
 }

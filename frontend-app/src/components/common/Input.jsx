@@ -5,7 +5,7 @@ const Input = ({
   onChange,
   placeholder = null,
   className = null,
-  icon = null,
+  Icon = null,
 }) => {
   // Set up props conditionaly
   const inputPros = {};
@@ -19,7 +19,11 @@ const Input = ({
   return (
     <fieldset {...fieldprops}>
       <input type="text" {...inputPros} value={value} onChange={onChange} />
-      {icon && <div className="input__icon">{icon}</div>}
+      {Icon && (
+        <div className="input__icon">
+          <Icon />
+        </div>
+      )}
     </fieldset>
   );
 };
