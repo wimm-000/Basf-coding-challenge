@@ -4,4 +4,12 @@
   & > * + * {
     margin-left: rem(15);
   }
+  @include respond-to(xl) {
+    & > * + * {
+      margin-left: rem(10);
+    }
+    justify-content: flex-end;
+    margin-right: rem(15);
+    margin-bottom: rem(5);
+  }
 }

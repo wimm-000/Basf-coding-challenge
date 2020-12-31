@@ -48,4 +48,5 @@ The project will require node v14 or higher, we are using es6 in the backend/api
 
 - [ ] search input on blug check str length
 - [ ] type chech func inverted
-- [ ] searform button missing
+- [ ] searchform button missing
+- [ ] size control in search form if >= to main breakpoint show
