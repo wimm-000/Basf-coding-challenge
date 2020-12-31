@@ -1,7 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
 import { addBodyScroll, removeBodyScroll } from "../utils/bodyScroll";
-// eslint-disable-next-line
-import cnConsole from "../utils/cnConsole";
 
 export const GlobalContext = createContext();
 

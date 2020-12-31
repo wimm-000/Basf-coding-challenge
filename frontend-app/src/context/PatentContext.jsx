@@ -1,20 +1,20 @@
 import React, { createContext, useReducer } from "react";
 import { PatentReducer } from "./reducers/PatentReducer";
 
-export const ProductContext = createContext();
+export const PatentContext = createContext();
 
-const ProductContextProvider = ({ children }) => {
-  const [products, productDispatch] = useReducer(PatentReducer, []);
+const PatentContextProvider = ({ children }) => {
+  const [patent, patentDispatch] = useReducer(PatentReducer, []);
   return (
-    <ProductContext.Provider
+    <PatentContext.Provider
       value={{
-        productsorder,
-        productDispatch,
+        patent,
+        patentDispatch,
       }}
     >
       {children}
-    </ProductContext.Provider>
+    </PatentContext.Provider>
   );
 };
 
-export default ProductContextProvider;
+export default PatentContextProvider;
