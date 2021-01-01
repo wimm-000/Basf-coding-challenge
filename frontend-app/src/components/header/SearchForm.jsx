@@ -18,6 +18,8 @@ const SearchForm = () => {
   useEffect(() => {
     if (searchString.length >= 3) {
       setLoadingText("searching...");
+    }else {
+      setLoadingText("")
     }
   }, [searchString]);
 
