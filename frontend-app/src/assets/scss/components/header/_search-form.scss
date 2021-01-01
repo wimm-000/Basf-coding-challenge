@@ -7,6 +7,9 @@
   transform: translateY(100%);
   padding: $vertical-flow $horizontal-flow;
   left: 0;
+  &__submit {
+    text-align: center;
+  }
   // not very bem but clean
   & > * + * {
     margin-top: $vertical-flow;
@@ -24,6 +27,9 @@
     grid-template-rows: auto auto;
     grid-template-columns: auto 1fr;
     transform: translateY(0);
+    &__submit {
+      display: none;
+    }
     & > * + * {
       margin-top: 0;
       margin-left: rem(15);

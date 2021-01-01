@@ -9,9 +9,10 @@
 - Tasks.(tasks)
 
 ## <a name="project-description"></a> Project Description
-__Mandatory:__ react app to display search results  
-__Optional:__ backend app in node, graphql app to manege products and user  
-__Optional:__ login with oauth and display user data.
+**Mandatory:** react app to display search results  
+**Optional:** backend app in node, graphql app to manege products and user  
+**Optional:** login with oauth and display user data.
+
 ## <a name="requirements"></a> Requirements
 
 The project will require node v14 or higher, we are using es6 in the backend/api
@@ -20,13 +21,15 @@ The project will require node v14 or higher, we are using es6 in the backend/api
 ## <a name="build"></a> Production build
 ## <a name="stories"></a> User stories
 ## <a name="tasks"></a> Tasks
+
 ## <a name="components"></a> Components
-* Header
-    - Toggle search
-    - Multioption selector
-      - Selector button
-    - Loader / spinner
-    - Modal window container
+
+- Header
+  - Toggle search
+  - Multioption selector
+    - Selector button
+  - Loader / spinner
+  - Modal window container
   * Footer
     - Info cotainer
     - Social links
@@ -34,19 +37,19 @@ The project will require node v14 or higher, we are using es6 in the backend/api
   * Content
     - List items container
       - List item
-    - Table 
+    - Table
     - Main spinner (in case I have time for a Infinite scroll)
   * Common
     - Input field
     - Button
-    - Notification ( success, error, warn  )
+    - Notification ( success, error, warn )
   * Optional - Login screen
     - Login User
     - Login oauth
 
-#Task 
+#Task
 
 - [ ] search input on blug check str length
-- [ ] type chech func inverted
-- [ ] searchform button missing
-- [ ] size control in search form if >= to main breakpoint show
+- [x] type chech func inverted
+- [x] searchform button missing
+- [x] size control in search form if >= to main breakpoint show

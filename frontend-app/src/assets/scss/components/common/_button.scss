@@ -1,0 +1,11 @@
+.button {
+  font-size: rem(18);
+  color: $color__white;
+  background: $color__dark-corporate;
+  padding: rem(10) rem(12);
+  cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $color__light-grey;
+  }
+}

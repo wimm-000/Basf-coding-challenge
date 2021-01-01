@@ -45,8 +45,8 @@ const SearchForm = () => {
       <p className="search-form__info">
         Choose type of chemichals to filter search (multioption)
       </p>
-      <fieldset className="searr-form__submit">
-        <Button>View seach results</Button>
+      <fieldset className="search-form__submit">
+        <Button isDisabled={true}>View seach results</Button>
       </fieldset>
     </form>
   );
