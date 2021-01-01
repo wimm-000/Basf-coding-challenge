@@ -5,6 +5,7 @@ export const GlobalContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
   const [isMenuOpen, setOpenMenu] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("")
   useEffect(() => {
     if (isMenuOpen) {
       // Al abrir modal quitamos el scroll del body
@@ -21,6 +22,8 @@ const GlobalContextProvider = ({ children }) => {
       value={{
         isMenuOpen,
         setOpenMenu,
+        searchTerm,
+        setSearchTerm
       }}
     >
       {children}

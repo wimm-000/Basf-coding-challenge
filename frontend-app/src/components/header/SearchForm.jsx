@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Input from "../common/Input";
 import Loading from "../common/Loading";
 import { ReactComponent as SpinnerIcon } from "../../assets/images/spinner.svg";
 import { ReactComponent as SearchIcon } from "../../assets/images/search.svg";
 import TypeSelector from "./TypeSelector";
 import Button from "../common/Button";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const SearchForm = () => {
+
+  const {setSearchTerm} = useContext(GlobalContext)
+
   const [searchString, setSearchString] = useState("");
   const [loadingText, setLoadingText] = useState("");
   const [options, setOptions] = useState([true, true]);
@@ -18,8 +22,10 @@ const SearchForm = () => {
   useEffect(() => {
     if (searchString.length >= 3) {
       setLoadingText("searching...");
+      setSearchTerm(searchString)
     }else {
       setLoadingText("")
+      setSearchTerm("")
     }
   }, [searchString]);
 
