@@ -29,5 +29,5 @@ test("We cannot set all values to false at least one is true", () => {
   const checkboxes = screen.getAllByRole("checkbox");
   const firstCheckbox = checkboxes[0];
   fireEvent.click(firstCheckbox);
-  expect(options.every((value) => value)).toBe(false);
+  expect(options.every((value) => !value)).toBe(false);
 });

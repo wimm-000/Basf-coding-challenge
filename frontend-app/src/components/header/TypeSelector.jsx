@@ -5,7 +5,7 @@ const TypeSelector = ({ typesSelected, onChange }) => {
   const handleChange = (isChecked, index) => {
     let values = [...typesSelected];
     values[index] = isChecked;
-    const allCheched = values.every((value) => value);
+    const allCheched = values.every((value) => !value);
     onChange(allCheched ? typesSelected : values);
   };
   return (
