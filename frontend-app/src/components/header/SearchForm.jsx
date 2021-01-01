@@ -4,6 +4,7 @@ import Loading from "../common/Loading";
 import { ReactComponent as SpinnerIcon } from "../../assets/images/spinner.svg";
 import { ReactComponent as SearchIcon } from "../../assets/images/search.svg";
 import TypeSelector from "./TypeSelector";
+import Button from "../common/Button";
 
 const SearchForm = () => {
   const [searchString, setSearchString] = useState("");
@@ -44,6 +45,9 @@ const SearchForm = () => {
       <p className="search-form__info">
         Choose type of chemichals to filter search (multioption)
       </p>
+      <fieldset className="searr-form__submit">
+        <Button>View seach results</Button>
+      </fieldset>
     </form>
   );
 };

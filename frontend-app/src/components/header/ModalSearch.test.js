@@ -1,33 +1,31 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import { MAIN_BREAKPOINT } from "../../config/app";
 import ModalSearch from "./ModalSearch";
 
-test("It has a toogle button closed", () => {
+test("It has a toogle button closed if width less than MAIN_BREAKPOINT", () => {
   const view = render(<ModalSearch />);
-  const button = view.getByRole("button", { name: "closed" });
+  const state = window.innerWidth > MAIN_BREAKPOINT ? "open" : "closed";
+  const button = view.getByRole("button", { name: state });
   expect(button).toBeInTheDocument();
 });
 
-test("It the first time is pressed it changes to open", () => {
+test("It the first time is pressed it changes to open if width less than MAIN_BREAKPOINT", () => {
   const view = render(<ModalSearch />);
-  const button = view.getByRole("button", { name: "closed" });
+  const state = window.innerWidth > MAIN_BREAKPOINT ? "open" : "closed";
+  const button = view.getByRole("button", { name: state });
   fireEvent.click(button);
-  const openButton = view.getByRole("button", { name: "open" });
+  const secondState = window.innerWidth > MAIN_BREAKPOINT ? "closed" : "open";
+  const openButton = view.getByRole("button", { name: secondState });
   expect(openButton).toBeInTheDocument();
-});
-
-test("It the second time is pressed it changes to close", () => {
-  const view = render(<ModalSearch />);
-  const button = view.getByRole("button", { name: "closed" });
-  fireEvent.click(button);
-  fireEvent.click(button);
-  const closedButton = view.getByRole("button", { name: "closed" });
-  expect(closedButton).toBeInTheDocument();
 });
 
 test("When open modal it displayed", () => {
   const view = render(<ModalSearch />);
-  const button = view.getByRole("button", { name: "closed" });
-  fireEvent.click(button);
+  const state = window.innerWidth > MAIN_BREAKPOINT ? "open" : "closed";
+  if (state === "closed") {
+    const button = view.getByRole("button", { name: state });
+    fireEvent.click(button);
+  }
   const modal = view.container.getElementsByClassName("search-form");
   expect(modal.length).toBe(1);
 });
