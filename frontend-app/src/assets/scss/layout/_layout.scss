@@ -1,1 +1,13 @@
 // Main layout app
+#root {
+  min-height: 100vh;
+}
+.basf-coding-challenge {
+  min-height: 100vh;
+  background: $color__white url(../../images/waves-background-mobile.svg)
+    no-repeat right bottom;
+  background-size: 100% auto;
+  @include respond-to(xl) {
+    background-image: url(../../images/waves-background-desktop.svg);
+  }
+}
