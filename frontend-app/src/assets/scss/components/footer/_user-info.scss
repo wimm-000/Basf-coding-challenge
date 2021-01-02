@@ -1,0 +1,13 @@
+.user-info {
+  display: flex;
+  align-items: center;
+  svg {
+    margin-right: rem(5);
+    width: 24px;
+    height: 24px;
+    display: block;
+    path {
+      fill: $color__dark-corporate;
+    }
+  }
+}

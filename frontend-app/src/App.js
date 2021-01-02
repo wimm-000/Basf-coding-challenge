@@ -2,6 +2,7 @@ import GlobalContextProvider from "./context/GlobalContext";
 import PatentContextProvider from "./context/PatentContext";
 
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
 import "./assets/scss/main.scss";
 
@@ -9,10 +10,10 @@ function App() {
   return (
     <GlobalContextProvider>
       <PatentContextProvider>
-        <div className="basf-coding-challenge">
+        <main className="basf-coding-challenge">
           <Header />
-        </div>
-        ;
+          <Footer />
+        </main>
       </PatentContextProvider>
     </GlobalContextProvider>
   );

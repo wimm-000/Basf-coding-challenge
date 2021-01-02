@@ -1,0 +1,10 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background: $color__light-grey;
+  border-top: 3px solid $color__white;
+  padding: $horizontal-flow;
+  color: $color__dark-corporate;
+}
+@import "social-links";
+@import "user-info";

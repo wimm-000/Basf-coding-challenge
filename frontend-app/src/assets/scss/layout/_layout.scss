@@ -10,4 +10,7 @@
   @include respond-to(xl) {
     background-image: url(../../images/waves-background-desktop.svg);
   }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

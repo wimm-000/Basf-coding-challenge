@@ -1,0 +1,19 @@
+.social-links {
+  display: flex;
+  align-items: center;
+  & > * + * {
+    margin-left: rem(5);
+  }
+  svg {
+    width: 24px;
+    height: 24px;
+    path {
+      fill: $color__dark-corporate;
+    }
+  }
+  &--linkedin {
+    svg {
+      height: 18px;
+    }
+  }
+}
