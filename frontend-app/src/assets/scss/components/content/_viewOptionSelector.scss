@@ -1,0 +1,15 @@
+.view-option-selector {
+  display: flex;
+  flex-basis: 50%;
+  justify-content: space-between;
+  & > li {
+    flex: 1 0 50%;
+  }
+  @include respond-to(xl) {
+    justify-content: flex-start;
+    & > li {
+      flex: 0 0 auto;
+      min-width: 180px;
+    }
+  }
+}

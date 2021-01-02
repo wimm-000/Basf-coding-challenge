@@ -1,0 +1,43 @@
+.view-option {
+  color: $color__dark-corporate;
+  &__link {
+    background: transparent;
+    padding: rem(5) rem(15);
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+  }
+  svg {
+    width: 24px;
+    height: 24px;
+    margin-right: rem(10);
+    display: block;
+    &.list {
+      path {
+        fill: $color__dark-corporate;
+      }
+    }
+    &.table {
+      path {
+        stroke: $color__dark-corporate;
+      }
+    }
+  }
+  &--selected {
+    @extend .view-option;
+    background: $color__accent;
+    color: $color__white;
+    svg {
+      &.list {
+        path {
+          fill: $color__white;
+        }
+      }
+      &.table {
+        path {
+          stroke: $color__white;
+        }
+      }
+    }
+  }
+}
