@@ -1,5 +1,6 @@
 const db = require("../../database/db");
 const constants = require("../../constants/constants");
+const { queryBuilder } = require("../../database/db");
 
 module.exports = async ({
   filter,
@@ -14,21 +15,29 @@ module.exports = async ({
       queryBuilder
         .groupBy("id")
         .orderBy(orderBy, isAsc ? "asc" : "desc")
-        .having("chemical_type_number", "=", `${typeNumber}`)
-        .limit(take)
-        .offset(skip);
+        .having("chemical_type_number", "=", `${typeNumber}`);
     } else {
-      queryBuilder
-        .orderBy(orderBy, isAsc ? "asc" : "desc")
-        .limit(take)
-        .offset(skip);
+      queryBuilder.orderBy(orderBy, isAsc ? "asc" : "desc");
     }
     queryBuilder;
+  };
+  const takeSkip = (queryBuilder) => {
+    queryBuilder.limit(take).offset(skip);
+  };
+  const getCurrentPage = (totalItems, skip, take) => {
+    const totalPages = Math.ceil(totalItems / take);
+    const currentpage = Math.floor(skip / take);
+    return { totalPages, currentpage };
   };
   try {
     let response;
     if (!filter) {
       response = await db
+        .select()
+        .modify(isValidTypeNumber)
+        .modify(takeSkip)
+        .from(constants.PANTENT_TABLE);
+      responseTotal = await db
         .select()
         .modify(isValidTypeNumber)
         .from(constants.PANTENT_TABLE);
@@ -39,9 +48,29 @@ module.exports = async ({
         .orWhere("chemical_type", "like", `%${filter}%`)
         .orWhere("patent_number", "like", `%${filter}%`)
         .modify(isValidTypeNumber)
+        .modify(takeSkip)
+        .from(constants.PANTENT_TABLE);
+      responseTotal = await db
+        .select()
+        .where("title", "like", `%${filter}%`)
+        .orWhere("chemical_type", "like", `%${filter}%`)
+        .orWhere("patent_number", "like", `%${filter}%`)
+        .modify(isValidTypeNumber)
         .from(constants.PANTENT_TABLE);
     }
-    return response;
+    const { currentpage, totalPages } = getCurrentPage(
+      responseTotal.length,
+      skip,
+      take
+    );
+    return {
+      data: response,
+      totalItems: responseTotal.length,
+      skip,
+      take,
+      currentpage,
+      totalPages,
+    };
   } catch (error) {
     return [];
   }

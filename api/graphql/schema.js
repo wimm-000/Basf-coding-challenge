@@ -25,8 +25,17 @@ module.exports = buildSchema(`
   }
 
   type rootQuery {
-    patents(filter:String, typeNumber: Int, take: Int, skip: Int, orderBy: String, isAsc: Boolean): [Patent!]!
+    patents(filter:String, typeNumber: Int, take: Int, skip: Int, orderBy: String, isAsc: Boolean): PagerData
     login(username: String!, password: String!): AuthData
+  }
+
+  type PagerData {
+    data: [Patent!]!
+    totalItems: Int
+    currentpage: Int
+    skip: Int
+    take: Int
+    totalPages: Int
   }
 
   input UserInput {
