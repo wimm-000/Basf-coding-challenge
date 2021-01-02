@@ -1,2 +1,11 @@
 @import "viewOption";
 @import "viewOptionSelector";
+@import "no-results";
+
+.content {
+  display: flex;
+  flex: 1 0;
+  padding-top: rem(5);
+  flex-direction: column;
+  height: 100%;
+}

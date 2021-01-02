@@ -1,0 +1,33 @@
+.no-results {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0;
+  &__title {
+    font-size: rem(18);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: rem(5);
+  }
+  &__actions {
+    display: flex;
+  }
+  &__action {
+    &:not(:last-child) {
+      &:after {
+        content: "·";
+      }
+    }
+  }
+  &__button {
+    cursor: pointer;
+    color: $color__dark-corporate;
+    text-decoration: underline;
+    font-size: rem(16);
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+  }
+}
