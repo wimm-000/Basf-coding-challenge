@@ -19,7 +19,7 @@ const NoResults = () => {
         <li className="no-results__action">
           <button
             className="no-results__button"
-            onClick={() => context.setOpenMenu(true)}
+            onClick={() => context.setSearchMenu(true)}
           >
             Make a new search
           </button>

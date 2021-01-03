@@ -1,16 +1,25 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MAIN_BREAKPOINT } from "../../config/app";
 import ModalSearch from "./ModalSearch";
+import GlobalContextProvider from "../../context/GlobalContext";
 
 test("It has a toogle button closed if width less than MAIN_BREAKPOINT", () => {
-  const view = render(<ModalSearch />);
+  const view = render(
+    <GlobalContextProvider>
+      <ModalSearch />
+    </GlobalContextProvider>
+  );
   const state = window.innerWidth > MAIN_BREAKPOINT ? "open" : "closed";
   const button = view.getByRole("button", { name: state });
   expect(button).toBeInTheDocument();
 });
 
 test("It the first time is pressed it changes to open if width less than MAIN_BREAKPOINT", () => {
-  const view = render(<ModalSearch />);
+  const view = render(
+    <GlobalContextProvider>
+      <ModalSearch />
+    </GlobalContextProvider>
+  );
   const state = window.innerWidth > MAIN_BREAKPOINT ? "open" : "closed";
   const button = view.getByRole("button", { name: state });
   fireEvent.click(button);
@@ -20,7 +29,11 @@ test("It the first time is pressed it changes to open if width less than MAIN_BR
 });
 
 test("When open modal it displayed", () => {
-  const view = render(<ModalSearch />);
+  const view = render(
+    <GlobalContextProvider>
+      <ModalSearch />
+    </GlobalContextProvider>
+  );
   const state = window.innerWidth > MAIN_BREAKPOINT ? "open" : "closed";
   if (state === "closed") {
     const button = view.getByRole("button", { name: state });
