@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import ViewOptionSelector from "./ViewOptionSelector";
-import NoResults from "./NoResults";
+import List from "./list/List";
 const Content = () => {
   return (
     <section className="content">
       <BrowserRouter>
         <ViewOptionSelector />
-        <NoResults />
+        <List />
       </BrowserRouter>
     </section>
   );

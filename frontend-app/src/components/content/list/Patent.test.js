@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Patent from "./Patent";
 
 test("It has a patentNumber, Title, TypeNumber, chemicalTypeProp", () => {

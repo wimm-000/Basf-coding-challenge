@@ -1,0 +1,31 @@
+.patent {
+  padding: rem(10);
+  background: $color__white;
+  & > * + * {
+    margin-top: rem(10);
+  }
+  border: 1px solid $color__light-grey;
+  &__number {
+    color: $color__dark;
+    font-size: rem(20);
+    font-weight: bold;
+  }
+  &__title {
+    font-size: rem(17);
+  }
+  &__type {
+    display: flex;
+    justify-content: flex-start;
+    font-size: rem(17);
+    align-items: flex-end;
+  }
+  &__number-type {
+    font-weight: bold;
+    strong {
+      color: $color__accent;
+    }
+  }
+  &__chemical-type {
+    margin-left: rem(10);
+  }
+}

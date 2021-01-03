@@ -1,0 +1,6 @@
+.error {
+  border: 2px solid $color__error;
+  background: lighten($color: $color__error, $amount: 45);
+  color: $color__error;
+  padding: calc(#{$vertical-flow} - 10px) $horizontal-flow;
+}

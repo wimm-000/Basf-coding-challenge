@@ -1,0 +1,29 @@
+.loading.loading--list-view {
+  justify-content: center;
+  align-items: center;
+  svg {
+    width: 25px;
+    height: 25px;
+    path {
+      fill: $color__dark-corporate;
+    }
+  }
+}
+
+.list-view {
+  display: grid;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  flex: 1 0;
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  row-gap: $vertical-flow;
+  column-gap: $horizontal-flow;
+  padding: $vertical-flow $horizontal-flow;
+  @include respond-to(m) {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(calc(50% - (#{$horizontal-flow} / 2)), 1fr)
+    );
+  }
+}
