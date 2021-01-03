@@ -48,8 +48,18 @@ The project will require node v14 or higher, we are using es6 in the backend/api
     - Login oauth
 
 #Task
-
-- [ ] search input on blug check str length
+- [ ] Show table as view and show list in route
+- [ ] Add adcions to next
+- [ ] Add adctions to prev
+- [ ] restart seach by new term and type
+- [ ] Show number of pages in pager component
+- [ ] Login route and github login
+- [ ] If no results confirm  no result component
+- [ ] If desktop hide show form button
+- [ ] Add table in development.
+- [ ] Complete table view data
+- [ ] add gsap and react-trasition-group to create animations
+- [x] search input on blug check str length
 - [x] type chech func inverted
 - [x] searchform button missing
 - [x] size control in search form if >= to main breakpoint show
