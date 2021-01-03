@@ -22,12 +22,6 @@ test("it recives input correctly", () => {
   expect(input.value).toBe("testing");
 });
 
-test("if it has more than 3 or more characters it starts loading data", async () => {
-  expect(screen.queryByText(/searching/)).toBeNull();
-  await userEvent.type(screen.getByRole("textbox"), "123");
-  expect(await screen.findByText(/searching/)).toBeInTheDocument();
-});
-
 test("We can select the type of seach", () => {
   const firstButton = screen.getByText(/Type 1/i);
   fireEvent.click(firstButton);

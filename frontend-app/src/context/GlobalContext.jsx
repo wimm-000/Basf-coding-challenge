@@ -8,6 +8,7 @@ export const GlobalContext = createContext();
 const GlobalContextProvider = ({ children }) => {
   const [isSearchOpen, setSearchMenu] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [searching, setSearching] = useState("");
   const size = useWindowSize();
   useEffect(() => {
     if (isSearchOpen && size.width < MAIN_BREAKPOINT) {
@@ -27,6 +28,8 @@ const GlobalContextProvider = ({ children }) => {
         setSearchMenu,
         searchTerm,
         setSearchTerm,
+        searching,
+        setSearching,
       }}
     >
       {children}

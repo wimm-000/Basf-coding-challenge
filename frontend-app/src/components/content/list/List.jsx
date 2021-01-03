@@ -9,7 +9,7 @@ import { ReactComponent as LoadingIcon } from "../../../assets/images/spinner.sv
 import Pager from "../Pager";
 
 const List = () => {
-  const { searchTerm } = useContext(GlobalContext);
+  const { searchTerm, setSearching } = useContext(GlobalContext);
   // As we start we will load all items we well use fetch more on search term search
   const { loading, error, data, fetchMore } = useQuery(SEARCH_QUERY, {
     variables: {
@@ -25,6 +25,10 @@ const List = () => {
   useEffect(() => {
     // TODO: reinit search
   }, [searchTerm]);
+
+  useEffect(() => {
+    setSearching(loading);
+  }, [loading]);
 
   if (loading) {
     return (

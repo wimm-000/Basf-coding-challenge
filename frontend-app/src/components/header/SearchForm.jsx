@@ -8,8 +8,7 @@ import Button from "../common/Button";
 import { GlobalContext } from "../../context/GlobalContext";
 
 const SearchForm = () => {
-
-  const {setSearchTerm} = useContext(GlobalContext)
+  const { setSearchTerm, searching } = useContext(GlobalContext);
 
   const [searchString, setSearchString] = useState("");
   const [loadingText, setLoadingText] = useState("");
@@ -21,13 +20,19 @@ const SearchForm = () => {
 
   useEffect(() => {
     if (searchString.length >= 3) {
-      setLoadingText("searching...");
-      setSearchTerm(searchString)
-    }else {
-      setLoadingText("")
-      setSearchTerm("")
+      setSearchTerm(searchString);
+    } else {
+      setSearchTerm("");
     }
   }, [searchString]);
+
+  useEffect(() => {
+    if (searching) {
+      setLoadingText("searching...");
+    } else {
+      setLoadingText("");
+    }
+  }, [searching]);
 
   const handleTypeChange = (values) => {
     setOptions(values);
