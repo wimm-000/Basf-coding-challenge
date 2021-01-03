@@ -11,19 +11,49 @@
 }
 
 .list-view {
-  display: grid;
-  justify-content: center;
-  flex-direction: column;
-  align-items: start;
-  flex: 1 0;
-  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-  row-gap: $vertical-flow;
-  column-gap: $horizontal-flow;
   padding: $vertical-flow $horizontal-flow;
-  @include respond-to(m) {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(calc(50% - (#{$horizontal-flow} / 2)), 1fr)
-    );
+  &__search-term {
+    font-size: rem(16);
+    font-weight: bold;
+    span {
+      color: $color__dark-corporate;
+    }
+    margin-bottom: rem(10);
+  }
+  &__item-count {
+    font-size: rem(16);
+    strong {
+      color: $color__dark-corporate;
+    }
+    margin-bottom: $vertical-flow;
+  }
+  &__items {
+    display: grid;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    flex: 1 0;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    row-gap: $vertical-flow;
+    column-gap: $horizontal-flow;
+    @include respond-to(m) {
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(calc(50% - (#{$horizontal-flow} / 2)), 1fr)
+      );
+    }
+  }
+  @include respond-to(xl) {
+    &__search-term,
+    &__item-count {
+      font-size: rem(20);
+    }
+    &__info {
+      display: flex;
+    }
+    &__search-term:after {
+      content: "·";
+      margin: 0 rem(10);
+    }
   }
 }

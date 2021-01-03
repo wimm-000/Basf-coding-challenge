@@ -57,15 +57,27 @@ const List = () => {
 
   return (
     <div className="list-view">
-      {listItems.map((patent, index) => (
-        <Patent
-          key={`patent-item-${index}`}
-          patentNumber={patent.patent_number}
-          title={patent.title}
-          chemicalTypeProp={patent.chemical_type}
-          typeNumber={patent.chemical_type_number}
-        />
-      ))}
+      <div className="list-view__info">
+        {searchTerm && (
+          <div className="list-view__search-term">
+            <span>Search term:</span> {searchTerm}
+          </div>
+        )}
+        <div className="list-view__item-count">
+          <strong>{data.patents.totalItems}</strong> patents
+        </div>
+      </div>
+      <ul className="list-view__items">
+        {listItems.map((patent, index) => (
+          <Patent
+            key={`patent-item-${index}`}
+            patentNumber={patent.patent_number}
+            title={patent.title}
+            chemicalTypeProp={patent.chemical_type}
+            typeNumber={patent.chemical_type_number}
+          />
+        ))}
+      </ul>
     </div>
   );
 };
