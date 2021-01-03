@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "npm test --prefix=frontend-app",
+        "install-project": "sh shell/install-deps.sh",
         "dev": "concurrently \"npm run start-watch --prefix=api\" \"npm start --prefix=frontend-app\""
     },
     "devDependencies": {

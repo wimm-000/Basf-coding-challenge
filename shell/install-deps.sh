@@ -1,7 +1,8 @@
 #!/bin/dash
 # We install proyect dependencies mostly npm install in each folder. 
 # We are using yarn in the react app, its faster.
-cd ..
 npm install
+pwd
 cd api && npm install
-cd app && yarn install
+cd ..
+cd frontend-app && yarn install
