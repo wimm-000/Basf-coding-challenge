@@ -1,0 +1,20 @@
+.pager {
+  display: flex;
+  font-size: rem(20);
+  padding: $vertical-flow 0;
+  justify-content: space-between;
+  &__button {
+    cursor: pointer;
+    color: $color__dark-corporate;
+    font-size: rem(17);
+    text-decoration: underline;
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      color: $color__light-grey;
+    }
+  }
+}

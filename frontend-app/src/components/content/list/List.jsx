@@ -6,6 +6,7 @@ import Loading from "../../common/Loading";
 import NoResults from "../NoResults";
 import Patent from "./Patent";
 import { ReactComponent as LoadingIcon } from "../../../assets/images/spinner.svg";
+import Pager from "../Pager";
 
 const List = () => {
   const { searchTerm } = useContext(GlobalContext);
@@ -78,6 +79,7 @@ const List = () => {
           />
         ))}
       </ul>
+      <Pager />
     </div>
   );
 };
