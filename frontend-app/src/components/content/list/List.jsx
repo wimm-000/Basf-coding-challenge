@@ -9,7 +9,7 @@ import { ReactComponent as LoadingIcon } from "../../../assets/images/spinner.sv
 import Pager from "../Pager";
 
 const List = () => {
-  const { searchTerm, setSearching } = useContext(GlobalContext);
+  const { searchTerm, setSearching, typeSearch } = useContext(GlobalContext);
   // As we start we will load all items we well use fetch more on search term search
   const { loading, error, data, fetchMore } = useQuery(SEARCH_QUERY, {
     variables: {
@@ -23,19 +23,19 @@ const List = () => {
   });
 
   useEffect(() => {
-    // TODO: reinit search
-    handleMore(searchTerm);
-  }, [searchTerm]);
+    handleMore(searchTerm, typeSearch);
+  }, [searchTerm, typeSearch]);
 
   useEffect(() => {
     setSearching(loading);
   }, [loading]);
 
-  const handleMore = (term, skip = 0) => {
+  const handleMore = (term, typeNumber = null, skip = 0) => {
     fetchMore({
       variables: {
         skip,
         filter: term,
+        typeNumber,
       },
       updateQuery: (prev, { fetchMoreResult }) => {
         if (!fetchMoreResult) return prev;
@@ -104,10 +104,18 @@ const List = () => {
           Math.ceil(data.patents.skip / data.patents.take)
         }
         onNext={(event) =>
-          handleMore(searchTerm, data.patents.skip + data.patents.take)
+          handleMore(
+            searchTerm,
+            typeSearch,
+            data.patents.skip + data.patents.take
+          )
         }
         onPrev={(event) => {
-          handleMore(searchTerm, data.patents.skip - data.patents.take);
+          handleMore(
+            searchTerm,
+            typeSearch,
+            data.patents.skip - data.patents.take
+          );
         }}
       >
         Page {Math.floor(data.patents.skip / data.patents.take) + 1} of{" "}

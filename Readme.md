@@ -51,10 +51,10 @@ The project will require node v14 or higher, we are using es6 in the backend/api
 - [ ] Show table as view and show list in route
 - [x] Add adcions to next
 - [x] Add adctions to prev
-- [ ] restart seach by new term and type
-- [ ] Show number of pages in pager component
+- [x] restart seach by new term and type
+- [x] Show number of pages in pager component
 - [ ] Login route and github login
-- [ ] If no results confirm  no result component
+- [x] If no results confirm  no result component
 - [ ] If desktop hide show form button
 - [ ] Add table in development.
 - [ ] Complete table view data

@@ -9,6 +9,7 @@ const GlobalContextProvider = ({ children }) => {
   const [isSearchOpen, setSearchMenu] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searching, setSearching] = useState("");
+  const [typeSearch, setTypeSearch] = useState(null);
   const size = useWindowSize();
   useEffect(() => {
     if (isSearchOpen && size.width < MAIN_BREAKPOINT) {
@@ -30,6 +31,8 @@ const GlobalContextProvider = ({ children }) => {
         setSearchTerm,
         searching,
         setSearching,
+        typeSearch,
+        setTypeSearch,
       }}
     >
       {children}

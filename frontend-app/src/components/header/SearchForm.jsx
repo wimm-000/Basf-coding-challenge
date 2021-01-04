@@ -8,7 +8,7 @@ import Button from "../common/Button";
 import { GlobalContext } from "../../context/GlobalContext";
 
 const SearchForm = () => {
-  const { setSearchTerm, searching } = useContext(GlobalContext);
+  const { setSearchTerm, searching, setTypeSearch } = useContext(GlobalContext);
 
   const [searchString, setSearchString] = useState("");
   const [loadingText, setLoadingText] = useState("");
@@ -34,6 +34,19 @@ const SearchForm = () => {
     }
   }, [searching]);
 
+  useEffect(() => {
+    const type1 = options[0];
+    const type2 = options[1];
+    let searchType = 1;
+    if (type2) {
+      searchType = 2;
+    }
+    if (type1 && type2) {
+      searchType = null;
+    }
+    setTypeSearch(searchType);
+  }, [options]);
+
   const handleTypeChange = (values) => {
     setOptions(values);
   };
@@ -56,7 +69,7 @@ const SearchForm = () => {
         <TypeSelector typesSelected={options} onChange={handleTypeChange} />
       </div>
       <p className="search-form__info">
-        Choose type of chemichals to filter search (multioption)
+        Choose type of chemichals to filter, at least one is mandatory
       </p>
       <fieldset className="search-form__submit">
         <Button isDisabled={true}>View seach results</Button>
