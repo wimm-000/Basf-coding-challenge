@@ -15,7 +15,7 @@ const List = () => {
     variables: {
       filter: "",
       typeNumber: null,
-      take: 100,
+      take: 20,
       skip: 0,
       orderBy: "id",
       isAsc: true,
@@ -24,11 +24,25 @@ const List = () => {
 
   useEffect(() => {
     // TODO: reinit search
+    handleMore(searchTerm);
   }, [searchTerm]);
 
   useEffect(() => {
     setSearching(loading);
   }, [loading]);
+
+  const handleMore = (term, skip = 0) => {
+    fetchMore({
+      variables: {
+        skip,
+        filter: term,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult) return prev;
+        return fetchMoreResult;
+      },
+    });
+  };
 
   if (loading) {
     return (
@@ -83,7 +97,22 @@ const List = () => {
           />
         ))}
       </ul>
-      <Pager />
+      <Pager
+        isFirstPage={data.patents.skip === 0}
+        isLastPage={
+          data.patents.totalPages ===
+          Math.ceil(data.patents.skip / data.patents.take)
+        }
+        onNext={(event) =>
+          handleMore(searchTerm, data.patents.skip + data.patents.take)
+        }
+        onPrev={(event) => {
+          handleMore(searchTerm, data.patents.skip - data.patents.take);
+        }}
+      >
+        Page {Math.floor(data.patents.skip / data.patents.take) + 1} of{" "}
+        {data.patents.totalPages}
+      </Pager>
     </div>
   );
 };

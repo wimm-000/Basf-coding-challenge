@@ -3,6 +3,8 @@
   font-size: rem(20);
   padding: $vertical-flow 0;
   justify-content: space-between;
+  color: $color__dark-corporate;
+  font-size: rem(17);
   &__button {
     cursor: pointer;
     color: $color__dark-corporate;
