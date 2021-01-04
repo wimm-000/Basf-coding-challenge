@@ -55,7 +55,7 @@ The project will require node v14 or higher, we are using es6 in the backend/api
 - [x] Show number of pages in pager component
 - [ ] Login route and github login
 - [x] If no results confirm  no result component
-- [ ] If desktop hide show form button
+- [x] If desktop hide show form button
 - [ ] Add table in development.
 - [ ] Complete table view data
 - [ ] add gsap and react-trasition-group to create animations

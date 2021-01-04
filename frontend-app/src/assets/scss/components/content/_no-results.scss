@@ -30,4 +30,16 @@
       text-decoration: none;
     }
   }
+  @include respond-to(xl) {
+    &__action {
+      &:last-child {
+        display: none;
+      }
+      &:not(:last-child) {
+        &:after {
+          content: "";
+        }
+      }
+    }
+  }
 }
