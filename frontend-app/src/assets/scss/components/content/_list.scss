@@ -34,9 +34,11 @@
     align-items: start;
     flex: 1 0;
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-    row-gap: $vertical-flow;
-    column-gap: $horizontal-flow;
+    grid-template-rows: masonry;
+    grid-auto-flow: dense;
+    gap: rem(10);
     @include respond-to(m) {
+      gap: rem(20);
       grid-template-columns: repeat(
         auto-fill,
         minmax(calc(50% - (#{$horizontal-flow} / 2)), 1fr)
