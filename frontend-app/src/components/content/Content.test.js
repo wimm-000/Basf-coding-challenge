@@ -12,5 +12,5 @@ test("Render correcty", () => {
       </GlobalContextProvider>
     </ApolloProvider>
   );
-  screen.getByText(/table/);
+  screen.getByText(/Login/);
 });

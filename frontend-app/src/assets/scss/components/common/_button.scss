@@ -8,4 +8,18 @@
     cursor: not-allowed;
     background-color: $color__light-grey;
   }
+  &--login {
+    @extend .button;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    svg {
+      width: 25px;
+      height: 25px;
+      margin-right: rem(5);
+      path {
+        fill: $color__white;
+      }
+    }
+  }
 }

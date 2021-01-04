@@ -8,15 +8,16 @@ const Content = () => {
   return (
     <section className="content">
       <BrowserRouter>
-        <ViewOptionSelector />
         <Switch>
           <Route exact path="/">
             <Login />
           </Route>
           <Route exact path="/list">
+            <ViewOptionSelector />
             <List />
           </Route>
           <Route path="/table">
+            <ViewOptionSelector />
             <Table />
           </Route>
         </Switch>
