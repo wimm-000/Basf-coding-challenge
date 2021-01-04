@@ -1,0 +1,17 @@
+.table {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0;
+  color: $color__dark-corporate;
+  a {
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: underline;
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+  }
+}
