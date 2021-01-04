@@ -13,6 +13,7 @@
 **Optional:** backend app in node, graphql app to manege products and user  
 **Optional:** login with oauth and display user data.
 
+
 ### <a name="requirements"></a> Requirements ###
 
 The project will require __node v14 or higher__, we are using es6 in the backend/api
@@ -70,6 +71,7 @@ If yoy want to run the project in development mode run
 npm run dev
 ```
 from the root folder
+
 
 ### <a name="tasks"></a> Pending Tasks ###
 

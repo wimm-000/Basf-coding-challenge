@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ViewOptionSelector from "./ViewOptionSelector";
 import List from "./list/List";
 import Table from "./table/Table";
+import Login from "./login/Login";
 const Content = () => {
   return (
     <section className="content">
@@ -10,7 +11,7 @@ const Content = () => {
         <ViewOptionSelector />
         <Switch>
           <Route exact path="/">
-            <List />
+            <Login />
           </Route>
           <Route exact path="/list">
             <List />

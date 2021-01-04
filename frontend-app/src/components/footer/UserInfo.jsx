@@ -20,7 +20,7 @@ const UserInfo = ({ type, name }) => {
   }
   return (
     <div className="user-info">
-      <LoginTypeIcon /> Welcome <strong>{name}</strong>
+      <LoginTypeIcon /> Welcome <strong> {name}</strong>
     </div>
   );
 };
