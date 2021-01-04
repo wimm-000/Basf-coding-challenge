@@ -8,16 +8,20 @@ import Button from "../common/Button";
 import { GlobalContext } from "../../context/GlobalContext";
 
 const SearchForm = () => {
-  const { setSearchTerm, searching, setTypeSearch } = useContext(GlobalContext);
+  const { setSearchTerm, searching, setTypeSearch, setSearchMenu } = useContext(
+    GlobalContext
+  );
 
   const [searchString, setSearchString] = useState("");
   const [loadingText, setLoadingText] = useState("");
   const [options, setOptions] = useState([true, true]);
+  const [isDisabled, setDisabled] = useState(false);
 
   const handleChange = (event) => {
     setSearchString(event.currentTarget.value);
   };
 
+  // Start search if there is more than 3 characters
   useEffect(() => {
     if (searchString.length >= 3) {
       setSearchTerm(searchString);
@@ -26,6 +30,7 @@ const SearchForm = () => {
     }
   }, [searchString]);
 
+  // Activate spinner
   useEffect(() => {
     if (searching) {
       setLoadingText("searching...");
@@ -34,6 +39,7 @@ const SearchForm = () => {
     }
   }, [searching]);
 
+  // Passing the type to de globalState
   useEffect(() => {
     const type1 = options[0];
     const type2 = options[1];
@@ -49,6 +55,11 @@ const SearchForm = () => {
 
   const handleTypeChange = (values) => {
     setOptions(values);
+  };
+
+  const handleClose = (event) => {
+    event.preventDefault();
+    setSearchMenu(false);
   };
 
   return (
@@ -72,7 +83,9 @@ const SearchForm = () => {
         Choose type of chemichals to filter, at least one is mandatory
       </p>
       <fieldset className="search-form__submit">
-        <Button isDisabled={true}>View seach results</Button>
+        <Button isDisabled={isDisabled} onClick={handleClose}>
+          View seach results
+        </Button>
       </fieldset>
     </form>
   );

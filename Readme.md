@@ -49,6 +49,7 @@ The project will require node v14 or higher, we are using es6 in the backend/api
 
 #Task
 - [ ] Show table as view and show list in route
+- [x] Search form activate btn if needed
 - [x] Add adcions to next
 - [x] Add adctions to prev
 - [x] restart seach by new term and type
@@ -59,6 +60,7 @@ The project will require node v14 or higher, we are using es6 in the backend/api
 - [ ] Add table in development.
 - [ ] Complete table view data
 - [ ] add gsap and react-trasition-group to create animations
+- [ ] correct list masonry view
 - [x] search input on blug check str length
 - [x] type chech func inverted
 - [x] searchform button missing
