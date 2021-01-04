@@ -2,7 +2,7 @@ import React from "react";
 
 const Table = () => {
   return (
-    <div className="table">
+    <div className="table-view">
       <p>
         In development, view{" "}
         <a
