@@ -4,7 +4,13 @@
   padding: $vertical-flow $horizontal-flow;
   align-items: center;
   color: $color__white;
-  position: relative;
+  position: sticky;
+  top: 0;
+  .remove-scroll & {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
   &__icon {
     margin: rem(16);
     font-size: rem(25);

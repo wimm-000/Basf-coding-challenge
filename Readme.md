@@ -61,6 +61,7 @@ The project will require node v14 or higher, we are using es6 in the backend/api
 - [ ] Complete table view data
 - [ ] add gsap and react-trasition-group to create animations
 - [ ] correct list masonry view
+- [x] Fixed header
 - [x] search input on blug check str length
 - [x] type chech func inverted
 - [x] searchform button missing
